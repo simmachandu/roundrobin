@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Round Robin CPU Scheduling — Interactive Visualizer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Round Robin CPU Scheduling — Interactive Visualizer</h1>
+  </header>
+
+  <main class="container">
+    <aside class="panel input-panel">
+      <div class="card">
+        <h2>Input</h2>
+
+        <label>Time Quantum (ms)</label>
+        <input id="quantum" type="number" min="1" value="4" />
+
+        <div class="buttons-row">
+          <button id="add-process" class="btn">+ Add Process</button>
+          <button id="clear-processes" class="btn">Clear</button>
+          <button id="build" class="btn primary">Build Schedule</button>
+        </div>
+
+        <table id="proc-table" class="proc-table">
+          <thead>
+            <tr><th>PID</th><th>Arrival</th><th>Burst</th><th>Priority</th><th></th></tr>
+          </thead>
+          <tbody id="proc-body">
+            <!-- rows injected -->
+          </tbody>
+        </table>
+
+        <div class="controls">
+          <button id="play" class="btn primary">► Play</button>
+          <button id="pause" class="btn">❚❚ Pause</button>
+          <button id="step" class="btn">Step</button>
+          <button id="reset" class="btn">Reset</button>
+        </div>
+      </div>
+    </aside>
+
+    <section class="panel viz-panel">
+      <div class="card viz-card">
+        <div class="info-row">
+          <div id="current-info" class="badge">No schedule</div>
+        </div>
+
+        <h3>Statistics</h3>
+        <div class="stats">
+          <div>Avg Waiting Time: <span id="avg-wait">—</span></div>
+          <div>Avg Turnaround Time: <span id="avg-turn">—</span></div>
+        </div>
+
+        <h3>Gantt Chart</h3>
+        <div id="gantt" class="gantt"></div>
+        <div id="time-scale" class="time-scale"></div>
+
+        <h3>Event Log</h3>
+        <ul id="event-log" class="event-log"></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>Round Robin Visualizer — Save files and open index.html</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
